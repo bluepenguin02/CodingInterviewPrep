@@ -13,7 +13,6 @@ as a string consisting of only the uppercase letters 'L', 'R', and 'U'. Each let
 'U' means to go from a node to its parent node.
 
 Return the step-by-step directions of the shortest path from node s to node t.
-
 """
 
 # Definition for a binary tree node.
