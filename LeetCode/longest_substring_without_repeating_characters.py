@@ -25,4 +25,3 @@ if __name__ == '__main__':
     test = 'abba'
     solu = Solution()
     print(solu.lengthOfLongestSubstring(test))
-                
