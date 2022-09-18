@@ -1,3 +1,7 @@
+"""
+8.7: Permutations without Dups
+"""
+
 def string_permutations(s: str) -> list:
     """Find all the permutations of a string of unique characters"""
     perms = ['']
