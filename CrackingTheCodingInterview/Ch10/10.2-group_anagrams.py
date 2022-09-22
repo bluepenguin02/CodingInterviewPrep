@@ -8,7 +8,7 @@ def group_anagrams(strings: list) -> list:
     """Given an array of strings, groups all the anagrams.  This method counts the characters in each string then sorts
     based on those counts.  It takes O(a*log(a) + a * s), where a is the length of the array and s is the longest string.
     The book suggests sorting each string, then throwing those sorts into a hash table.  It's O(a * s*log(s)).  I suppose
-    we could count the characters then throw those counts into a hash table.  It'd be O(a + s), but I'm not sure if it'd
+    we could count the characters then throw those counts into a hash table.  It'd be O(a * s), but I'm not sure if it'd
     actually be faster."""
     char_counts = []
     for i, s in enumerate(strings):
