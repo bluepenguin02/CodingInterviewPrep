@@ -10,7 +10,7 @@ import heapq
 from random import randint
 
 
-def peaks_and_valleys(array: list) -> list:
+def peaks_and_valleys(array: str) -> list:
     """I think we can just call heapify and in-order traverse the heap.  The problem comes when a leaf node
     doesn't have a sibling, in which case we need to swap the parent and leaf."""
     if len(array) < 3:
