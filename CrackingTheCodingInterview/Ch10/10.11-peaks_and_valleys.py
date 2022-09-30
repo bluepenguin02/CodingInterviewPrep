@@ -5,7 +5,6 @@ Note: I did two solutions to this.  One using a heap and the other just linearly
 swapping adjacent elements.
 """
 
-
 import heapq
 from random import randint
 
