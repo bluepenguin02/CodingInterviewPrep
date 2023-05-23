@@ -13,7 +13,7 @@ class Solution:
       longest = 0
       for end, c in enumerate(s):
         while c in seen:
-          seen.remove(s[start])  
+          seen.remove(s[start])
           start += 1
         seen.add(c)
         longest = max(longest, end-start+1)
