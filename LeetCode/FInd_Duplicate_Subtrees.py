@@ -8,7 +8,16 @@ For each kind of duplicate subtrees, you only need to return the root node of an
 
 Two trees are duplicate if they have the same structure with the same node values.
 """
+
+from typing import Optional
 from collections import defaultdict
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> list[Optional[TreeNode]]:
         tuple_ids = {}
