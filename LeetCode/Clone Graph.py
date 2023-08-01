@@ -1,7 +1,12 @@
 """
+133. Clone Graph
 https://leetcode.com/problems/clone-graph/description/
 
-133. Clone Graph
+Given a reference of a node in a connected undirected graph.
+
+Return a deep copy (clone) of the graph.
+
+Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
 
 # Definition for a Node.
 class Node:
@@ -14,30 +19,29 @@ class Node:
         4 - 3
 """
 
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+
+from collections import deque
+
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        old_nodes = {}
-        new_nodes = {}
+        if not node:
+            return None
+        visited = {}
+        queue = deque()
+        new_start = Node(node.val)
+        visited[node] = new_start
+        queue.append(node)
+        while queue:
+            curr_old = queue.popleft()
+            for neighbor in curr_old.neighbors:
+                if neighbor not in visited:
+                    new_neighbor = Node(neighbor.val)
+                    visited[neighbor] = new_neighbor
+                    queue.append(neighbor)
+                visited[curr_old].neighbors.append(visited[neighbor])
 
-        def bfs(start_node) -> None:
-            queue = deque([start_node])
-            old_nodes[start_node.val] = start_node
-            new_nodes[start_node.val] = Node(start_node.val)
-            while queue:
-                curr_node = queue.popleft()
-                for neighbor in curr_node.neighbors:
-                    if neighbor.val not in old_nodes:
-                        queue.append(neighbor)
-                        old_nodes[neighbor.val] = neighbor
-                        new_nodes[neighbor.val] = Node(neighbor.val)
-
-        if node:
-            bfs(node)
-
-        for old_node in old_nodes.values():
-            for neighbor in old_node.neighbors:
-                new_neighbor = new_nodes[neighbor.val]
-                new_nodes[old_node.val].neighbors.append(new_neighbor)
-        
-        if node:
-            return new_nodes[1]
+        return new_start
