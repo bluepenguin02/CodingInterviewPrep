@@ -17,9 +17,9 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode'):
       lca = None
-      def dfs(node: 'TreeNode') -> bool:
+      def dfs(node) -> bool:
         nonlocal lca
         if not node: 
           return False
