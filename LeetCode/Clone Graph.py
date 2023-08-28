@@ -29,7 +29,7 @@ from collections import deque
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node:
-            return None
+            return None # type: ignore
         visited = {}
         queue = deque()
         new_start = Node(node.val)
