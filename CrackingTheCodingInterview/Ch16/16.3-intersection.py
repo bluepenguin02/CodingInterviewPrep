@@ -2,7 +2,7 @@ from collections import namedtuple
 
 Point = namedtuple('Point', ['x', 'y'])
 
-def line_intersection(points1: tuple, points2: tuple) -> Point:
+def line_intersection(points1: tuple, points2: tuple) -> Point | None:
     line1 = Line(points1)
     line2 = Line(points2)
     
@@ -13,8 +13,8 @@ class Line:
     def __init__(self, points: tuple):
         self._start = points[0]
         self._end = points[1]
-        self._m = None
-        self._b = None
+        self._m = 0
+        self._b = 0
         self._slope_and_intercept()
         
     @property
@@ -44,13 +44,13 @@ class Line:
     def is_vertical(self):
         return self._m == float('inf')
             
-    def y_from_x(self, x: int):
+    def y_from_x(self, x: float):
         if x < self._start.x or self._end.x < x:
             return None
         else:
             return self._m * x + self._b
     
-def intersection(line1: Line, line2: Line) -> Point:
+def intersection(line1: Line, line2: Line) -> Point | None:
     if line1._m == line2._m:
         if line1._b != line2._b:
             return None
